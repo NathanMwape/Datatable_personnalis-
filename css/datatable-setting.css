@@ -1,0 +1,151 @@
+/* Conteneur principal, centré et avec ombrage */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centrer le conteneur */
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond douce */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'ombrage */
+    border-radius: 8px; /* Légère courbure des bords */
+  }
+  
+  /* Table avec espacement et bordures plus propres */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espacement entre les lignes */
+  }
+  
+  .table th,
+  .table td {
+    border: none; /* Supprime la bordure pour un look plus propre */
+    padding: 12px 15px; /* Ajout d'espace interne */
+    background-color: #ffffff; /* Fond blanc pour les cellules */
+    text-align: left;
+    vertical-align: middle; /* Aligner verticalement les textes */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Effet ombré léger pour les cellules */
+  }
+  
+  /* Bordures plus subtiles entre les cellules */
+  .table td,
+  .table th {
+    border-bottom: 1px solid #dee2e6; /* Bordure fine */
+  }
+  
+  /* En-tête de tableau avec couleur distincte */
+  .table th {
+    background-color: #343a40; /* Couleur sombre pour l'en-tête */
+    font-weight: bold;
+    text-transform: uppercase; /* Majuscules pour les en-têtes */
+  }
+  
+  /* Style général pour les boutons */
+  .dt-buttons .btn {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+    padding: 8px 15px; /* Espacement interne amélioré */
+    font-size: 0.9rem; /* Taille de texte légèrement augmentée */
+    border-radius: 6px; /* Courbes plus prononcées */
+    transition: all 0.3s ease; /* Transition douce pour les survols */
+  }
+  
+  /* Boutons spécifiques (CSV, Excel, PDF) */
+  .dt-buttons .buttons-csv {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .dt-buttons .buttons-excel {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .dt-buttons .buttons-pdf {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  /* Effet au survol sur les boutons */
+  .dt-buttons .btn:hover {
+    background-color: #218838; /* Légère variation de la couleur */
+    border-color: #1e7e34;
+    transform: translateY(-2px); /* Légère élévation pour un effet 3D */
+  }
+  
+  /* Survol spécifique pour chaque bouton */
+  .dt-buttons .buttons-csv:hover {
+    background-color: #0056b3;
+  }
+  
+  .dt-buttons .buttons-excel:hover {
+    background-color: #e0a800;
+  }
+  
+  .dt-buttons .buttons-pdf:hover {
+    background-color: #c82333;
+  }
+  
+  /* Adaptation aux petits écrans */
+  /* Ajustement pour petit écran */
+  @media (max-width: 768px) {
+    table.table {
+      font-size: 0.85rem;
+    }
+  
+    .container {
+      padding: 10px;
+      overflow-x: auto; /* Active le défilement horizontal */
+    }
+  
+    .table th,
+    .table td {
+      padding: 8px 10px; /* Réduit les espaces internes pour s'adapter aux petits écrans */
+    }
+  
+    /* Boutons de pagination plus compacts sur mobile */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      padding: 4px 8px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Ajouter un effet de focus pour améliorer l'accessibilité */
+  .dt-buttons .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  }
+  
+  /* Espace pour le conteneur de recherche */
+  .search-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .search-container input {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+    width: 250px;
+  }
+  
+  /* Style pour le bouton de recherche */
+  .search-container button {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-container button:hover {
+    background-color: #138496;
+  }
+  
+
+  

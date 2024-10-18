@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable avec Tailwind CSS</title>
+    
+    <!-- CDN de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CDN de DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- CDN de DataTables Buttons CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+    <!-- CDN de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/datatable-setting.css">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto mt-10 px-4">
+    <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">DataTable avec Tailwind CSS</h2>
+    
+    <!-- Conteneur avec ombre et coins arrondis -->
+    <div class="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
+        <div class="mb-4 flex justify-between items-center">
+            <!-- Zone de recherche (si nécessaire) -->
+            <div class="relative">
+                <input type="text" id="search" class="p-2 pl-8 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Rechercher...">
+                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+            <!-- Boutons d'exportation -->
+            <div class="space-x-2">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" id="export-csv">
+                    <i class="fas fa-file-csv mr-2"></i> CSV
+                </button>
+                <button class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500" id="export-excel">
+                    <i class="fas fa-file-excel mr-2"></i> Excel
+                </button>
+                <button class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500" id="export-pdf">
+                    <i class="fas fa-file-pdf mr-2"></i> PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Tableau des données -->
+        <table id="example" class="display table-auto w-full border-separate border-spacing-0">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="p-4 text-left">Nom</th>
+                    <th class="p-4 text-left">Position</th>
+                    <th class="p-4 text-left">Bureau</th>
+                    <th class="p-4 text-left">Âge</th>
+                    <th class="p-4 text-left">Date de début</th>
+                    <th class="p-4 text-left">Salaire</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-4">Jackson Bradshaw</td>
+                    <td class="p-4">Directeur</td>
+                    <td class="p-4">New York</td>
+                    <td class="p-4">65</td>
+                    <td class="p-4">2008-09-26</td>
+                    <td class="p-4">$645,750</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Cara Stevens</td>
+                    <td class="p-4">Assistant commercial</td>
+                    <td class="p-4">New York</td>
+                    <td class="p-4">46</td>
+                    <td class="p-4">2011-12-06</td>
+                    <td class="p-4">$145,600</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Hermione Butler</td>
+                    <td class="p-4">Directeur régional</td>
+                    <td class="p-4">Londres</td>
+                    <td class="p-4">47</td>
+                    <td class="p-4">2011-03-21</td>
+                    <td class="p-4">$356,250</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Lael Greer</td>
+                    <td class="p-4">Administrateur système</td>
+                    <td class="p-4">Londres</td>
+                    <td class="p-4">21</td>
+                    <td class="p-4">2009-02-27</td>
+                    <td class="p-4">$103,500</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Jonas Alexander</td>
+                    <td class="p-4">Développeur</td>
+                    <td class="p-4">San Francisco</td>
+                    <td class="p-4">30</td>
+                    <td class="p-4">2010-07-14</td>
+                    <td class="p-4">$86,500</td>
+                </tr>
+                <!-- Ajoutez d'autres lignes si nécessaire -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- CDN jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- CDN DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<!-- CDN DataTables Buttons JS -->
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="js/datatable-setting.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var table = $('#example').DataTable({
+            // dom: 'Bfrtip', // Où placer les boutons (B pour boutons)
+            buttons: [
+                'csvHtml5',
+                'excelHtml5',
+                'pdfHtml5'
+            ],
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/French.json' // Si vous voulez avoir la langue française
+            },
+            scrollCollapse: true,
+            autoWidth: false,   
+            responsive: true,
+            pagingType: "simple_numbers",
+            dom: '<"top-toolbar d-flex justify-content-between"<"search-container"f><"length-menu-container"l>>rtip', // Sans boutons
+            language: {
+                info: "_START_-_END_ de _TOTAL_ entrées",
+                infoEmpty: "Affichage de 0 à 0 sur 0 entrées",
+                infoFiltered: "(filtre de _MAX_ entrées totales)",
+                zeroRecords: "Aucun enregistrement correspondant trouvé",
+                search: "Recherche :",
+                lengthMenu: "Afficher _MENU_ entrées",
+                searchPlaceholder: "Recherche...",
+                paginate: {
+                next: '<i class="fas fa-chevron-right"></i>',
+                previous: '<i class="fas fa-chevron-left"></i>',
+                },
+            },
+        });
+
+        // Ajouter des événements pour les boutons personnalisés
+        $('#export-csv').on('click', function() {
+            table.button('.buttons-csv').trigger();
+        });
+        $('#export-excel').on('click', function() {
+            table.button('.buttons-excel').trigger();
+        });
+        $('#export-pdf').on('click', function() {
+            table.button('.buttons-pdf').trigger();
+        });
+    });
+</script>
+
+</body>
+</html>
